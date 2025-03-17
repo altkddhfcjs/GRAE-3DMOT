@@ -1,0 +1,35 @@
+{
+    "name": "default",
+
+    "arch": {
+        "type": "GRAE",
+        "args": {
+            "in_channels": 128,
+            "layers": 3,
+            "device": "cuda"
+        }
+    },  
+    "train_dataset": {
+        "type": "NusceneseDataset",
+        "args": {
+            "ann_file": "../data/grae_train.pickle"
+        }
+    },
+    "optimizer": {
+        "type": "AdamW",
+        "args": {
+            "lr": 0.0002,
+            "weight_decay": 0.002
+        }
+    },
+    "trainer": {
+        "epochs": 12,
+
+        "save_dir": "./outputs/bev_pred_bbox/",
+        "nusc_path": "data/nuscenes",
+        "save_period": 1,
+        "verbosity": 2,
+        "log_step": 100,
+        "tensorboard": true
+    }
+}
